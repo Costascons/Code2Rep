@@ -1,35 +1,64 @@
-float x,y;
-float dist;
-boolean circleClick = false;
+//Commented out code here shows how I made the circle first and then put it in a class.
+int arrayLength = 50;
+Buttons [] circles = new Buttons[arrayLength];
+
+//float circleButtonX, circleButtonY, circleButtonD;
+//boolean colorChange = false;
+//boolean colorChange2 = true;
 
 void setup(){
   size(600,400);
-  background(0);
- 
-  
-  if(circleClick){
-    fill(300,200,200);
-  }else {
-    fill(200,20,20);
+  for (int i = 0; i < arrayLength; i++){
+    circles[i] = new Buttons();
   }
+  //stroke(200,200,20,20);
+  //circleButtonX = 150;
+  //circleButtonY = 150;
+  //circleButtonD = 80;
+ 
 }
 
 void draw(){
-   x = width/2-50;
-   y = height/2-50;
-   dist = dist(x,y, width/2,height/2);
+  background(0);
+  for(int i =0; i < arrayLength; i++){
+    circles[i].display();
+    circles[i].drawCircle();
+    circles[i].mouseClicked();
+  }
+  
+  for(int i =0; i < arrayLength; i++){
+    circles[i].mouseClicked();
    
-   stroke(200,200,20);
-  fill(200,20,20);
-  ellipse(x,y,100,100);
+  }
+ // drawCircle();
+ //if(colorChange){
+ //   fill(200,300,20);
+ // }else {
+ //   fill(200,20,20);
+ // }
+  
+ // if(colorChange2){
+ //   fill(200, 100, 300);
+ // }else {
+ //   fill(200,300,20);
+ // }
+  
  }
  
-void mouseClicked(){
-  if (dist(mouseX, mouseY, x,y) < 50){
-         if(circleClick){
-           circleClick = false;
-         }else {
-           circleClick = true;
-         }
-       }
-}
+//void drawCircle(){
+// if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
+//   stroke(300,10,10);
+// }else {
+//   stroke(200,200,20,20);
+// }
+// ellipse(circleButtonX, circleButtonY, circleButtonD, circleButtonD);
+//}
+
+//void mouseClicked(){
+//  if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
+//    colorChange = !colorChange;
+//  }
+//  if(colorChange){
+//    colorChange2 = !colorChange2;
+//  }
+//}
