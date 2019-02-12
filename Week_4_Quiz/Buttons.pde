@@ -10,6 +10,7 @@ Buttons(){
   
   }
 void display(){
+  strokeWeight(5);
     stroke(200,200,20,20);
   drawCircle();
  if(colorChange){

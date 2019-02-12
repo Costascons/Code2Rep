@@ -23,13 +23,8 @@ void draw(){
   for(int i =0; i < arrayLength; i++){
     circles[i].display();
     circles[i].drawCircle();
-    circles[i].mouseClicked();
   }
   
-  for(int i =0; i < arrayLength; i++){
-    circles[i].mouseClicked();
-   
-  }
  // drawCircle();
  //if(colorChange){
  //   fill(200,300,20);
@@ -44,6 +39,12 @@ void draw(){
  // }
   
  }
+ 
+void mouseClicked(){
+   for(int i =0; i < arrayLength; i++){
+    circles[i].mouseClicked();
+   }
+}
  
 //void drawCircle(){
 // if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
