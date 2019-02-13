@@ -1,7 +1,7 @@
 class Buttons {
   float circleButtonX, circleButtonY, circleButtonD;
 boolean colorChange = false;
-boolean colorChange2 = true;
+//boolean colorChange2 = true;
 
 Buttons(){
   circleButtonX = random(width);
@@ -10,8 +10,8 @@ Buttons(){
   
   }
 void display(){
-  strokeWeight(5);
-    stroke(200,200,20,20);
+  strokeWeight(3);
+    stroke(200,300,20,20);
   drawCircle();
  if(colorChange){
     fill(200,300,20);
@@ -19,17 +19,17 @@ void display(){
     fill(200,20,20);
   }
   
-  if(colorChange2){
-    fill(200, 100, 300);
-  }else {
-    fill(200,300,20);
-  }
+  //if(colorChange2){
+  //  fill(200, 100, 300);
+  //}else {
+  //  fill(200,300,20);
+  //}
    }
    void drawCircle(){
  if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
    stroke(300,10,10);
  }else {
-   stroke(200,200,20,20);
+   stroke(200,200,20);
  }
  ellipse(circleButtonX, circleButtonY, circleButtonD, circleButtonD);
 }
@@ -38,9 +38,18 @@ void mouseClicked(){
   if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
     colorChange = !colorChange;
   }
-  if(colorChange){
-    colorChange2 = !colorChange2;
-     }
+  //if(colorChange){
+  //  colorChange2 = !colorChange2;
+  //   }
    }
+   
+void mouseDragged(){
+    if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){
+    colorChange = !colorChange;
+  }
+  //if(colorChange){
+  //  colorChange2 = !colorChange2;
+  //   }
+}
 
 }

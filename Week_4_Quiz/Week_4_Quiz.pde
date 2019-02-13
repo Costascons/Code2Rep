@@ -45,6 +45,12 @@ void mouseClicked(){
     circles[i].mouseClicked();
    }
 }
+
+void mouseDragged(){
+  for(int i =0; i < arrayLength; i++){
+    circles[i].mouseDragged();
+   }
+}
  
 //void drawCircle(){
 // if(dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD * .5){

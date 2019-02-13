@@ -10,8 +10,7 @@ color circleColor;
 
  Buttons(float circleButtonX150, float circleButtonY150, float circleButtonD80,
          float squareButtonX400, float squareButtonY100, float squareButtonD100 ){
-  location = new PVector(random(width/2), random(height/2));
-  velocity = new PVector(random(-5,5), random(-5,5));
+
   circleButtonX = circleButtonX150;
   circleButtonY = circleButtonY150;
   circleButtonD = circleButtonD80;
@@ -23,6 +22,8 @@ color circleColor;
  }
  
  void display(){
+     location = new PVector(random(width), random(height/2));
+  velocity = new PVector(random(-5,5), random(-5,5));
    if(circleClick){
      circleColor = color(150,200,30,16);
      ellipse(location.x, location.y,10,10);
