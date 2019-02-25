@@ -1,9 +1,13 @@
-//import sprites.*;
-//import sprites.maths.*;
-//import sprites.utils.*;
-int framenum = 6;
+
+int frontarray = 1;
+int leftarray = 2;
+int rightarray = 2;
+int lyingarray = 1;
 int currentFrame = 0;
-PImage[] animation = new PImage[framenum];
+PImage[] front = new PImage[frontarray];
+PImage[] left = new PImage[leftarray];
+PImage[] right = new PImage[rightarray];
+PImage[] lying = new PImage[lyingarray];
 int FRONT = 0;
 int SLEFT = 1;
 int MLEFT = 2;
@@ -15,18 +19,30 @@ int STATE = FRONT;
 
 void setup(){
   size(600,600);
-  animation[0] = loadImage("Caveman (Front).png");
-  animation[1] = loadImage("Caveman (Left).png");
-  animation[2] = loadImage("Caveman (Left Walk).png");
-  animation[3] = loadImage("Caveman (Right).png");
-  animation[4] = loadImage("Caveman (Right Walk).png");
-  animation[5] = loadImage("Caveman (Lying).png");
+  front[0] = loadImage("Caveman (Front).png");
+  left[0] = loadImage("Caveman (Left).png");
+  left[1] = loadImage("Caveman (Left Walk).png");
+  right[0] = loadImage("Caveman (Right).png");
+  right[1] = loadImage("Caveman (Right Walk).png");
+  lying[0] = loadImage("Caveman (Lying).png");
 }
 
 void draw(){
-  image(animation[currentFrame],200,100);
+  image(front[currentFrame],200,100);
+  image(left[currentFrame],200,100);
+  image(right[currentFrame],200,100);
+  image(lying[currentFrame],200,100);
   currentFrame++;
-  if(currentFrame >= framenum){
+  if(currentFrame >= frontarray){
+    currentFrame = 0;
+  }
+  if(currentFrame >= leftarray){
+    currentFrame = 0;
+  }
+  if(currentFrame >= rightarray){
+    currentFrame = 0;
+  }
+  if(currentFrame >= lyingarray){
     currentFrame = 0;
   }
   switch(STATE){
@@ -77,36 +93,36 @@ void keyTyped(){
 
 void Front(){
   background(200);
-  animation[0] = loadImage("Caveman (Front).png");
-  image(animation[0], 150, 100, width/2,height/2);
+  //front[0] = loadImage("Caveman (Front).png");
+  image(front[0], 150, 100, width/2,height/2);
 }
 
 void standLeft(){
   background(300);
-  animation[1] = loadImage("Caveman (Left).png");
-  image(animation[1], 150, 100, width/2,height/2);
+  //left[0] = loadImage("Caveman (Left).png");
+  image(left[0], 150, 100, width/2,height/2);
 }
 
 void moveLeft(){
   background(350);
-  animation[2] = loadImage("Caveman (Left Walk).png");
-  image(animation[1], 150, 100, width/2,height/2);
+  //left[1] = loadImage("Caveman (Left Walk).png");
+  image(left[1], 150, 100, width/2,height/2);
 }
 
 void standRight(){
-  background(350);
-  animation[3] = loadImage("Caveman (Right).png");
-  image(animation[1], 150, 100, width/2,height/2);
+  background(450);
+  //right[0] = loadImage("Caveman (Right).png");
+  image(right[0], 150, 100, width/2,height/2);
 }
 
 void moveRight(){
-  background(350);
-  animation[4] = loadImage("Caveman (Right Walk).png");
-  image(animation[1], 150, 100, width/2,height/2);
+  background(450);
+  //right[1] = loadImage("Caveman (Right Walk).png");
+  image(right[1], 150, 100, width/2,height/2);
 }
 
 void Lying(){
-  background(350);
-  animation[5] = loadImage("Caveman (Lying).png");
-  image(animation[1], 150, 100, width/2,height/2);
+  background(300,20,20);
+  //lying[0] = loadImage("Caveman (Lying).png");
+  image(lying[0], 150, 100, width/2,height/2);
 }
