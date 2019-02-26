@@ -7,8 +7,9 @@ void draw() {
   background(0);
   
   degrees += 1;
-  float x = cos( radians(degrees) ) * 134;
-  float y = sin( radians(degrees) ) * 134;
+  float offset = radians(40);
+  float x = cos( radians(degrees)+ offset ) * 134;
+  float y = sin( radians(degrees)+ offset ) * 134;
 
   ellipseMode(CENTER);
   ellipse( 200 + x, 200+ y, 30, 30);
