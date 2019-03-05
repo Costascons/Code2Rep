@@ -1,54 +1,63 @@
-float ballW = 60;
-float ballH = 60;
-PVector velocity = new PVector (1,0);
-PVector acceleration = new PVector (.1,0); 
-PVector position = new PVector (200,200);
-boolean isCaught = false;
+float ballW = width/2;
+float ballH = height/2;
+float size = 60;
+PVector velocity;
+PVector acceleration; 
+PVector position;
+boolean colorChan;
+boolean ifCatch = false;
 
 
 void setup(){
  size(800,800);
- //position = new PVector(200,200);
- //velocity = new PVector(1,5);
- //acceleration = new PVector(0,1);
-//checkBoundaries();
+ position = new PVector(200,200);
+ velocity = new PVector(1,5);
+ acceleration = new PVector(0.1,0);
+
   
 }
 
 void draw(){
   background(0);
+  if(colorChan==true){
+  fill(255,0,0);
+  }else if (colorChan ==false){
+    fill(0,255,0);
+  }
+  
   ellipse(position.x, position.y, ballW, ballH);
   
  position.add(velocity);
  velocity.add(acceleration);
- //acceleration.rotate(radians(1));
 
+  if(position.x > width - ballW/2 || position.x < ballW/2){
+      position.x -= velocity.x;
+      velocity.x *= -1; 
+      //acceleration.x = -1;
+      colorChan = true;
+    }
+    if(position.y > height - ballH/2 || position.y < ballH/2){
+      position.y -= velocity.y;
+      velocity.y *= -1; 
+      //acceleration.x = -1;
+      colorChan = false;
+    }
   
 }
 
 
 void mousePressed(){
- if(dist(mouseX, mouseY, 200, 200) < ballW/2){
-position = new PVector(200,200);
- velocity = new PVector(1,5);
- acceleration = new PVector(0,1);}
+position.x = mouseX;
+position.y = mouseY;
 }
 
-//void checkBoundaries(){
-//  if(position.x > ballW - ballW/2){
-//      position.x = ballW - ballW/2;
-//      velocity.x *= -1; 
-//    }
-//    if(position.x < 0 + ballW/2) {
-//      position.x = 0 + ballW/2;
-//      velocity.x *= -1; 
-//    }
-//    if(position.y > ballH - ballW/2){
-//      position.y = ballH - ballW/2;
-//      velocity.y *= -1;   
-//    }
-//    if(position.y < 0 + ballW/2){
-//      position.y = 0 + ballW/2;
-//      velocity.y *= -1; 
-//    } 
-//}
+void mouseDragged(){
+position.x = mouseX;
+position.y = mouseY;
+}
+
+void mouseReleased(){
+position.x = mouseX;
+position.y = mouseY;
+position = new PVector(random(width),random(height)); 
+}
