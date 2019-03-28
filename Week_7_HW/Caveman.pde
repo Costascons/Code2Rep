@@ -17,14 +17,14 @@ int STATE = FRONT;
 
 String[] movements = {"Front", "MLeft", "MRight", "Lie", "Laugh", "MMOVE"};
 float[][] movementChance = {
-{ .3, .1, .1, .01, .39, .1}, 
-{ .45, .05, .1, 0, .3, .1}, 
-{ .2, .05, .2, 0, .35, .2 }, 
-{ .4, .1, .1, 0, .1, .3}, 
-{ .1, 0, 0, .01, .89, 0},
-{ .4, .1, .1, 0, .2, .2},
-{.1,      0,     0,      .01,    .89, .0}
+{ .15, .15, .15, .15, .2, .2}, 
+{ .15, .15, .15, .15, .2, .2}, 
+{ .15, .15, .15, .15, .2, .2}, 
+{ .15, .15, .15, .15, .2, .2}, 
+{ .15, .15, .15, .15, .2, .2},
+{ .15, .15, .15, .15, .2, .2},
 };
+
 boolean moveDirection = true;
 //movement 
 PVector velocity, position;
@@ -160,7 +160,7 @@ void Laughing(){
   }
  }
 void getNewState(){
-frameNumber = 0;
+currentFrame = 0;
 float rand = random(1);
 float currentTotal = 0;
 float[] range = movementChance[STATE];
